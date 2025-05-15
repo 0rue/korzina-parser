@@ -1,0 +1,59 @@
+[2025-05-15T17:12:13.871+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-15T17:12:13.905+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina scheduled__2025-05-14T08:00:00+00:00 [queued]>
+[2025-05-15T17:12:13.913+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina scheduled__2025-05-14T08:00:00+00:00 [queued]>
+[2025-05-15T17:12:13.913+0000] {taskinstance.py:2303} INFO - Starting attempt 5 of 5
+[2025-05-15T17:12:13.924+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): parse_korzina> on 2025-05-14 08:00:00+00:00
+[2025-05-15T17:12:13.928+0000] {standard_task_runner.py:63} INFO - Started process 176 to run task
+[2025-05-15T17:12:13.931+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'korzina_parser_dag', 'parse_korzina', 'scheduled__2025-05-14T08:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/korzinavdom_dag.py', '--cfg-path', '/tmp/tmp_v8_aqxl']
+[2025-05-15T17:12:13.937+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask parse_korzina
+[2025-05-15T17:12:13.976+0000] {task_command.py:426} INFO - Running <TaskInstance: korzina_parser_dag.parse_korzina scheduled__2025-05-14T08:00:00+00:00 [running]> on host 4958c71ee3f1
+[2025-05-15T17:12:14.047+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='korzina_parser_dag' AIRFLOW_CTX_TASK_ID='parse_korzina' AIRFLOW_CTX_EXECUTION_DATE='2025-05-14T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-14T08:00:00+00:00'
+[2025-05-15T17:12:14.048+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-15T17:12:14.059+0000] {parser.py:16} INFO - Начинаем парсинг сайта korzinavdom.kz
+[2025-05-15T17:12:14.059+0000] {parser.py:20} INFO - Запрашиваем страницу: https://korzinavdom.kz/catalog?PAGEN_1=1
+[2025-05-15T17:12:18.172+0000] {parser.py:31} INFO - Продукты не найдены, завершение парсинга.
+[2025-05-15T17:12:18.172+0000] {parser.py:64} INFO - Подключение к ClickHouse...
+[2025-05-15T17:12:21.841+0000] {connection.py:411} WARNING - Failed to connect to clickhouse:9000
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/connection.py", line 399, in connect
+    return self._init_connection(host, port)
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/connection.py", line 329, in _init_connection
+    self.socket = self._create_socket(host, port)
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/connection.py", line 280, in _create_socket
+    for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+[2025-05-15T17:12:21.843+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-15T17:12:21.843+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/parser.py", line 67, in parse_and_insert
+    client.execute('''
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/client.py", line 370, in execute
+    with self.disconnect_on_error(query, settings):
+  File "/usr/local/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/client.py", line 313, in disconnect_on_error
+    self.establish_connection(settings)
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/client.py", line 300, in establish_connection
+    self.connection.force_connect()
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/connection.py", line 258, in force_connect
+    self.connect()
+  File "/home/airflow/.local/lib/python3.10/site-packages/clickhouse_driver/connection.py", line 420, in connect
+    raise err
+clickhouse_driver.errors.NetworkError: Code: 210. Name or service not known (clickhouse:9000)
+[2025-05-15T17:12:21.857+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=korzina_parser_dag, task_id=parse_korzina, execution_date=20250514T080000, start_date=20250515T171213, end_date=20250515T171221
+[2025-05-15T17:12:21.869+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task parse_korzina (Code: 210. Name or service not known (clickhouse:9000); 176)
+[2025-05-15T17:12:21.900+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-05-15T17:12:21.912+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-15T17:12:21.913+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

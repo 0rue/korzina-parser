@@ -1,0 +1,21 @@
+[2025-05-15T17:52:41.635+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-15T17:52:41.663+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T17:52:40.852091+00:00 [queued]>
+[2025-05-15T17:52:41.670+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T17:52:40.852091+00:00 [queued]>
+[2025-05-15T17:52:41.671+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 3
+[2025-05-15T17:52:41.683+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): parse_korzina> on 2025-05-15 17:52:40.852091+00:00
+[2025-05-15T17:52:41.687+0000] {standard_task_runner.py:63} INFO - Started process 186 to run task
+[2025-05-15T17:52:41.690+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'korzina_parser_dag', 'parse_korzina', 'manual__2025-05-15T17:52:40.852091+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/korzinavdom_dag.py', '--cfg-path', '/tmp/tmpby40vjbe']
+[2025-05-15T17:52:41.694+0000] {standard_task_runner.py:91} INFO - Job 19: Subtask parse_korzina
+[2025-05-15T17:52:41.736+0000] {task_command.py:426} INFO - Running <TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T17:52:40.852091+00:00 [running]> on host 1167b61d5c3f
+[2025-05-15T17:52:41.809+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='korzina_parser_dag' AIRFLOW_CTX_TASK_ID='parse_korzina' AIRFLOW_CTX_EXECUTION_DATE='2025-05-15T17:52:40.852091+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-15T17:52:40.852091+00:00'
+[2025-05-15T17:52:41.810+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-15T17:52:41.822+0000] {parser.py:20} INFO - Запрашиваем страницу: https://korzinavdom.kz/catalog?PAGEN_1=1
+[2025-05-15T17:52:42.157+0000] {parser.py:31} INFO - Продукты не найдены, завершение парсинга.
+[2025-05-15T17:52:42.157+0000] {parser.py:64} INFO - Подключение к ClickHouse...
+[2025-05-15T17:52:42.161+0000] {parser.py:93} WARNING - Нет данных для вставки.
+[2025-05-15T17:52:42.162+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-05-15T17:52:42.163+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-15T17:52:42.170+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=korzina_parser_dag, task_id=parse_korzina, execution_date=20250515T175240, start_date=20250515T175241, end_date=20250515T175242
+[2025-05-15T17:52:42.224+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-15T17:52:42.235+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-15T17:52:42.237+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

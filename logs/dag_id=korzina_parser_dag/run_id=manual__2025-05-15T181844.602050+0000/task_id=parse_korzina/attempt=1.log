@@ -1,0 +1,20 @@
+[2025-05-15T18:18:45.670+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-15T18:18:45.697+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T18:18:44.602050+00:00 [queued]>
+[2025-05-15T18:18:45.705+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T18:18:44.602050+00:00 [queued]>
+[2025-05-15T18:18:45.705+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 3
+[2025-05-15T18:18:45.717+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): parse_korzina> on 2025-05-15 18:18:44.602050+00:00
+[2025-05-15T18:18:45.722+0000] {standard_task_runner.py:63} INFO - Started process 442 to run task
+[2025-05-15T18:18:45.726+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'korzina_parser_dag', 'parse_korzina', 'manual__2025-05-15T18:18:44.602050+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/korzinavdom_dag.py', '--cfg-path', '/tmp/tmpwuv9jzb2']
+[2025-05-15T18:18:45.731+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask parse_korzina
+[2025-05-15T18:18:45.775+0000] {task_command.py:426} INFO - Running <TaskInstance: korzina_parser_dag.parse_korzina manual__2025-05-15T18:18:44.602050+00:00 [running]> on host 1167b61d5c3f
+[2025-05-15T18:18:45.847+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='korzina_parser_dag' AIRFLOW_CTX_TASK_ID='parse_korzina' AIRFLOW_CTX_EXECUTION_DATE='2025-05-15T18:18:44.602050+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-15T18:18:44.602050+00:00'
+[2025-05-15T18:18:45.848+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-15T18:18:45.863+0000] {parser.py:128} INFO - Запрашиваем страницу 1
+[2025-05-15T18:18:46.332+0000] {parser.py:138} INFO - Товары закончились, завершаем парсинг.
+[2025-05-15T18:18:46.332+0000] {parser.py:174} WARNING - Нет данных для вставки.
+[2025-05-15T18:18:46.334+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-05-15T18:18:46.335+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-15T18:18:46.342+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=korzina_parser_dag, task_id=parse_korzina, execution_date=20250515T181844, start_date=20250515T181845, end_date=20250515T181846
+[2025-05-15T18:18:46.381+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-15T18:18:46.411+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-15T18:18:46.413+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

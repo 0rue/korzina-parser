@@ -1,0 +1,5 @@
+apache-airflow==2.9.0
+requests
+beautifulsoup4
+clickhouse-driver
+clickhouse-connect
