@@ -1,0 +1,38 @@
+# Python
+pycache/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Airflow
+logs/
+airflow.db
+airflow-webserver.pid
+unittests.cfg
+*.sqlite
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Git
+*.log
+*.bak
+
+# Jupyter
+.ipynb_checkpoints/
+
+# dotenv
+.env
+.env.*
